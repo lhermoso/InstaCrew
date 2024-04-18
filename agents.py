@@ -15,7 +15,6 @@ tools = [
     ScrapeElementFromWebsiteTool(),
     PDFSearchTool(),
     DOCXSearchTool(),
-    GithubSearchTool(content_types=['code'], gh_token='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'),
     CodeDocsSearchTool(),
     WebsiteSearchTool()
 ]

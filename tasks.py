@@ -41,7 +41,7 @@ def audience_analysis_task(agent):
             "Realize uma análise detalhada da audiência-alvo para o tema {tema}, focando em suas preferências, "
             "comportamentos e interações no Instagram. Utilize essas informações para propor ideias criativas de conteúdo "
             "para Reels que se alinhem com os interesses da audiência e tenham alto potencial de engajamento e viralização."
-            "Instagram referencia: https://instagram.com/leoohermoso"
+            "Instagram referencia: https://www.instagram.com/leoohermoso"
         ),
         expected_output=(
             "Sua resposta deve expandir o relatorio recebido uma análise da audiência com detalhes sobre suas preferências e comportamentos, "
@@ -68,7 +68,7 @@ def viral_idea_selection_task(agent):
 def script_development_task(agent):
     return Task(
         description=(
-            f"Desenvolva um roteiro detalhado para um Reels sobre o tema {{tema}}, incorporando as tendências atuais e as ideias criativas "
+            f"Desenvolva um roteiro detalhado para um Reels que tenha entre 35 e 45 segundos sobre a idea proposta, incorporando as tendências atuais "
             "levantadas nas análises anteriores. O roteiro deve ser estruturado de forma a capturar a atenção imediatamente, "
             "mantendo o engajamento e promovendo a interação do público. Inclua direções claras para filmagem, diálogos, "
             "e qualquer outro elemento relevante que contribua para a narrativa."
@@ -78,15 +78,19 @@ def script_development_task(agent):
             f"Inspiracoes para Titulos Virais: {titulos}"
             f"Inspiracoes para ganchos Virais: {ganchos}"
             f"Inspiracoes para CTA Virais: {ctas}"
-            ""
+                ""
         ),
         expected_output='Um roteiro detalhado e formatado para produção, incluindo instruções específicas para cada cena'
+                        'O Beneficio apenas deve ser introduzido se ele nao for redundante com o Gancho'
+                        'Inserir apenas 1 CTA, temos que prender a atencao do expectador, apenas faca o CTA no comeco se o gancho'
+                        'for extremamente poderoso'
                         'Estrutura do Roteiro:'
                         '1 - Titulo'
                         '2 - Gancho'
                         '3 - CTA'
                         '4 - Beneficio -> Serve para ancorar o tema do video'
-                        '5 - Desenvolvimento',
+                        '5 - Desenvolvimento'
+                        '6 - CTA',
         tools=[],  # Este agente pode operar sem ferramentas externas
         agent=agent,
     )
